@@ -229,6 +229,11 @@ public class InteractiveController {
 
     @FXML
     private void areaChartView() {
+        index0.getData().clear();
+        index1.getData().clear();
+        index2.getData().clear();
+        index3.getData().clear();
+        index4.getData().clear();
         //if (ee.currentTime() == 0){
         // X axis
         //areachartXaxis.setAutoRanging(false);
@@ -250,13 +255,16 @@ public class InteractiveController {
         index4.setName("Death");
 
 
-        index0.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(0)));
-        index1.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(1)));
-        index2.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(2)));
-        index3.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(3)));
-        index4.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(4)));
+        
+            index0.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(0)));
+            index1.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(1)));
+            index2.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(2)));
+            index3.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(3)));
+            index4.getData().add(new XYChart.Data<>(ee.steps(), ee.currentState().getOccupancy(4)));
+        
 
         ObservableList<XYChart.Series<Integer, Double>> seriesList = FXCollections.observableArrayList();
+        seriesList.clear();
         seriesList.setAll(index0,index1,index2,index3,index4);
         areachartView.setData(seriesList);
         //areachartView.getData().addAll(index0,index1,index2,index3,index4);
