@@ -200,12 +200,16 @@ public class PopulationState implements State {
 		return populationVector.length;
 	}
 
+	public double fraction( int i ) {
+		return getOccupancy(i)/population;
+	}
+
 	public PopulationState copy() {
 		return new PopulationState(population,populationVector);
 	}
 
 
 	public int[] getPopulationVector() {
-		return this.populationVector;
+		return null;
 	}
 }
